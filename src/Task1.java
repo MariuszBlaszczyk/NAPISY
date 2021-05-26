@@ -71,6 +71,14 @@ public class Task1 {
         return number;
     }
 
+    static int howManyLettersInTheWordAreLargerThanTheDesignatedLetter(int asciiCode) {
+        if (asciiCode == 0) {
+            throw new IllegalArgumentException("Ascii code is null.");
+        }
+        char character = 'a';
+        asciiCode = (char) character;
+    }
+
     public static void main(String[] args) {
 
         String userText = getStringFromUser();
