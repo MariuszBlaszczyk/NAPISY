@@ -10,6 +10,7 @@ public class Task2 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
+        //inicjalizacja tego Stringa " " jest prawidłowa?
         String text = "";
         //jaka jest różnica pomiędzy
         // "^[a-zA-Z0-9]+$"   a   "[A-Za-z0-9]+.*"   ???
@@ -37,6 +38,12 @@ public class Task2 {
 
 
     static String replacingVowelSubstitution(String firstUserText, String secondUserText) {
+        if (firstUserText.isEmpty()) {
+            throw new IllegalArgumentException("First user text is blank");
+        }
+        if (secondUserText.isEmpty()) {
+            throw new IllegalArgumentException("Second user text is blank");
+        }
         char firstVowel = 'a';
         for (int i = 0; i < secondUserText.length(); i++) {
             char ch2 = secondUserText.charAt(i);

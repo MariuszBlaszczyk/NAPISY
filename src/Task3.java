@@ -29,6 +29,9 @@ public class Task3 {
     }
 
     static int howManyLowercaseLettersAreInTheWording(String text) {
+        if (text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is blank");
+        }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
@@ -40,6 +43,9 @@ public class Task3 {
     }
 
     static int howManyUppercaseLettersAreInTheWording(String text) {
+        if (text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is blank");
+        }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
@@ -51,6 +57,9 @@ public class Task3 {
     }
 
     static int howManyDigitsAreInTheWording(String text) {
+        if (text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is blank");
+        }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
