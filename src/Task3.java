@@ -11,7 +11,7 @@ public class Task3 {
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
         String text = "";
-        String regex = "[A-Za-z0-9]+.*";
+        String regex = "\\w+.*";
         boolean error = true;
         do {
             try {

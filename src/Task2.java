@@ -52,6 +52,7 @@ public class Task2 {
                 break;
             } else {
                 System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
+                break;
             }
         }
         char[] arrayText1 = firstUserText.toCharArray();
@@ -60,6 +61,8 @@ public class Task2 {
                 arrayText1[i] = firstVowel;
             }
         }
+        //WYNIK FINALNY NIE JEST TAKI JAKIEGO BYM OCZEKIWAŁ, LITERY SIĘ PODMIENIAJĄ, ALE SĄ ŁĄCZONE
+        // I WYSKAKUJE ZA KAŻDYM RAZEM KOMUNIKAT Z ELSE
         return String.valueOf(arrayText1);
 
     }
