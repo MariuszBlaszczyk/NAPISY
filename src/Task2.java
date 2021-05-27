@@ -63,7 +63,34 @@ public class Task2 {
             }
         }
         return firstUserText;
-}
+    }
+
+    static String replacingVowelSubstitution2(String firstUserText, String secondUserText) {
+        if (firstUserText.isEmpty()) {
+            throw new IllegalArgumentException("First user text is blank");
+        }
+        if (secondUserText.isEmpty()) {
+            throw new IllegalArgumentException("Second user text is blank");
+        }
+        char firstVowel = 'a';
+        char[] arrayText2 = secondUserText.toCharArray();
+        for (int i = 0; i < arrayText2.length; i++) {
+            if (isVowel(arrayText2[i])) {
+                firstVowel = arrayText2[i];
+                break;
+            } else {
+                System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
+            }
+        }
+        char[] arrayText1 = firstUserText.toCharArray();
+        for (int i = 0; i < arrayText1.length; i++) {
+            if (!isVowel(arrayText1[i])) {
+                arrayText1[i] = firstVowel;
+            }
+        }
+        return String.valueOf(arrayText1);
+
+    }
 
     public static void main(String[] args) {
 
