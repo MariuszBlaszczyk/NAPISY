@@ -45,34 +45,6 @@ public class Task2 {
             throw new IllegalArgumentException("Second user text is blank");
         }
         char firstVowel = 'a';
-        for (int i = 0; i < secondUserText.length(); i++) {
-            char ch2 = secondUserText.charAt(i);
-            if (!isVowel(ch2)) {
-                System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
-            }
-            if (isVowel(ch2)) {
-                firstVowel = ch2;
-                break;
-            }
-        }
-        for (int j = 0; j < firstUserText.length(); j++) {
-            char ch1 = firstUserText.charAt(j);
-            if (!isVowel(ch1)) {
-                ch1 = firstVowel;
-                break;
-            }
-        }
-        return firstUserText;
-    }
-
-    static String replacingVowelSubstitution2(String firstUserText, String secondUserText) {
-        if (firstUserText.isEmpty()) {
-            throw new IllegalArgumentException("First user text is blank");
-        }
-        if (secondUserText.isEmpty()) {
-            throw new IllegalArgumentException("Second user text is blank");
-        }
-        char firstVowel = 'a';
         char[] arrayText2 = secondUserText.toCharArray();
         for (int i = 0; i < arrayText2.length; i++) {
             if (isVowel(arrayText2[i])) {
