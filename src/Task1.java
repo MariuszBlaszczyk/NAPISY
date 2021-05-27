@@ -62,7 +62,7 @@ public class Task1 {
             throw new IllegalArgumentException("Min is bigger than max!");
         }
         int number = 0;
-        for (int i = min; i <= max; i++) {
+        for (int i = min; i < max; i++) {
             if (sum % i == 0) {
                 number = i;
                 break;
@@ -76,7 +76,7 @@ public class Task1 {
             throw new IllegalArgumentException("Ascii code is null.");
         }
         int counter = 0;
-        for (int i = 0; i <= userText.length(); i++) {
+        for (int i = 0; i < userText.length(); i++) {
             char character = userText.charAt(i);
             if ((int) character > asciiCharacter) {
                 counter++;
