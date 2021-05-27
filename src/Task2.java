@@ -11,7 +11,9 @@ public class Task2 {
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
         String text = "";
-        String regex = "^[a-zA-Z]+$";
+        //jaka jest różnica pomiędzy
+        // "^[a-zA-Z0-9]+$"   a   "[A-Za-z0-9]+.*"   ???
+        String regex = "[A-Za-z0-9]+.*";
         boolean error = true;
         do {
             try {
@@ -27,23 +29,34 @@ public class Task2 {
         return text;
     }
 
-//    static String ReplacingVowelSubstitution(String firstUserText, String secondUserText) {
-//        char[] character1 = firstUserText.toCharArray();
-//        char[] character2 = secondUserText.toCharArray();
-//        for (int i = 0; i <= character2.length; i++) {
-//
-//        }
-//        var chars = expression.toCharArray();
-//        for (int i = 0; i < chars.length; i++) {
-//            if (Character.isUpperCase(chars[i])) {
-//                chars[i] = Character.toLowerCase(chars[i]);
-//            } else if (Character.isLowerCase(chars[i])) {
-//                chars[i] = Character.toUpperCase(chars[i]);
-//            }
-//        }
-//        return String.valueOf(chars);
-//    }
+    static boolean isVowel(char character) {
+        return character == 'a' || character == 'e' || character == 'i' ||
+                character == 'o' || character == 'u' || character == 'A' || character == 'E' ||
+                character == 'I' || character == 'O' || character == 'U';
+    }
 
+
+    static String replacingVowelSubstitution(String firstUserText, String secondUserText) {
+        char firstVowel = 'a';
+        for (int i = 0; i < secondUserText.length(); i++) {
+            char ch2 = secondUserText.charAt(i);
+            if (!isVowel(ch2)) {
+                System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
+            }
+            if (isVowel(ch2)) {
+                firstVowel = ch2;
+                break;
+            }
+        }
+        for (int j = 0; j < firstUserText.length(); j++) {
+            char ch1 = firstUserText.charAt(j);
+            if (!isVowel(ch1)) {
+                ch1 = firstVowel;
+                break;
+            }
+        }
+        return firstUserText;
+}
 
     public static void main(String[] args) {
 
@@ -52,6 +65,9 @@ public class Task2 {
         System.out.println("Give the second inscription");
         String secondUserText = getStringFromUser();
 
+
+        String result = replacingVowelSubstitution(firstUserText, secondUserText);
+        System.out.println(result);
 
     }
 }
