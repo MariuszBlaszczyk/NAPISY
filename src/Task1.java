@@ -71,32 +71,43 @@ public class Task1 {
         return number;
     }
 
-    static int howManyLettersInTheWordAreLargerThanTheDesignatedLetter(int asciiCode) {
-        if (asciiCode == 0) {
+    static int howManyLettersInTheWordAreLargerThanTheDesignatedLetter(int asciiCharacter, String userText) {
+        if (asciiCharacter == 0) {
             throw new IllegalArgumentException("Ascii code is null.");
         }
-        char character = 'a';
-        asciiCode = (char) character;
+        int counter = 0;
+        for (int i = 0; i <= userText.length(); i++) {
+            char character = userText.charAt(i);
+            if ((int) character > asciiCharacter) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     public static void main(String[] args) {
 
         String userText = getStringFromUser();
 
-// jaką nazwę nadałbyś tym zmiennym tak żeby było wiadomo o co chodzi?
+// jaką nazwę nadałbyś wsyztskim tym zmiennym tak żeby było wiadomo o co chodzi?
         int counter = howManyCharactersHaveAnOddDigitOfUnity(userText);
         int sum = theSumOfTheAsciiCodesOfTheCharactersOnTheEvenIndicesInTheString(userText);
 
-        System.out.println("Counter: " + counter);
-        System.out.println("Suma: " + sum);
+        System.out.println("There are " + counter + " characters whose ASCII code has " +
+                "an odd unity digit.");
+        System.out.println("The sum of the ASCII codes of the characters on the even indices in" +
+                " the inscription is: " + sum);
 
         final int MIN = 65;
         final int MAX = 90;
 
         int firstDivider =
                 findTheFirstNumberFromTheIntervalWhichIsADivisorOfThePreviouslyDeterminedSum(sum, MIN, MAX);
+        System.out.println("The first number in the interval <65, 90> that is " +
+                "a divisor of the sum determined earlier: " + firstDivider);
 
-        System.out.println("First divider: " + firstDivider);
+        int biggerThan = howManyLettersInTheWordAreLargerThanTheDesignatedLetter(firstDivider, userText);
+        System.out.println("The inscription contains " + biggerThan + " letters larger than the designated letter");
 
     }
 }
