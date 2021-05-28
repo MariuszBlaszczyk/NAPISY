@@ -28,4 +28,21 @@ public class Task6 {
         } while (error);
         return text;
     }
+
+    static int increaseDecreaseCodeAscii(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (i % 2 == 0) {
+                ch = (char) (Character.getNumericValue(ch) + 10);
+            } else {
+                ch = (char) (Character.getNumericValue(ch) - 5);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        String userText = getStringFromUser();
+    }
 }
