@@ -31,8 +31,8 @@ public class Task4 {
     }
 
     static String swapPairsOfCharacters(String text) {
-        if (text.isEmpty()) {
-            throw new IllegalArgumentException("The inscription is blank");
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
         }
         char[] chars = text.toCharArray();
         char helpedChar = 'a';

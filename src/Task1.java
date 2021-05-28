@@ -15,8 +15,9 @@ public class Task1 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
+        //inicjalizacja tego Stringa "" jest prawidłowa?
         String text = "";
-        String regex = "[A-Z]+";
+        String regex = "[A-Z]+.*";
         boolean error = true;
         do {
             try {
@@ -37,7 +38,7 @@ public class Task1 {
     static int howManyCharactersHaveAnOddDigitOfUnity(String text) {
         //co myślisz o dodaniu takiego wyjątku??
         if (text == null || text.isEmpty()) {
-            throw new IllegalArgumentException("The inscription is blank");
+            throw new IllegalArgumentException("The inscription is empty");
         }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {

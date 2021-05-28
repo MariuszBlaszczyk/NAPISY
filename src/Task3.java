@@ -11,7 +11,7 @@ public class Task3 {
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
         String text = "";
-        String regex = "\\w*";
+        String regex = "\\w+.*";
         boolean error = true;
         do {
             try {
@@ -29,8 +29,8 @@ public class Task3 {
     }
 
     static int howManyLowercaseLettersAreInTheWording(String text) {
-        if (text.isEmpty()) {
-            throw new IllegalArgumentException("The inscription is blank");
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
         }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -43,8 +43,8 @@ public class Task3 {
     }
 
     static int howManyUppercaseLettersAreInTheWording(String text) {
-        if (text.isEmpty()) {
-            throw new IllegalArgumentException("The inscription is blank");
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
         }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -57,8 +57,8 @@ public class Task3 {
     }
 
     static int howManyDigitsAreInTheWording(String text) {
-        if (text.isEmpty()) {
-            throw new IllegalArgumentException("The inscription is blank");
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
         }
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {

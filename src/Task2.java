@@ -1,3 +1,4 @@
+import java.lang.reflect.Constructor;
 import java.util.Scanner;
 
 public class Task2 {
@@ -10,9 +11,8 @@ public class Task2 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        //inicjalizacja tego Stringa " " jest prawidłowa?
         String text = "";
-        String regex = "\\w*";
+        String regex = "\\w+.*";
         boolean error = true;
         do {
             try {
@@ -36,12 +36,13 @@ public class Task2 {
 
 
     static String replacingVowelSubstitution(String firstUserText, String secondUserText) {
-        if (firstUserText.isEmpty()) {
-            throw new IllegalArgumentException("First user text is blank");
+        if (firstUserText == null || firstUserText.isEmpty()) {
+            throw new IllegalArgumentException("First user text is empty");
         }
-        if (secondUserText.isEmpty()) {
-            throw new IllegalArgumentException("Second user text is blank");
+        if (secondUserText == null || secondUserText.isEmpty()) {
+            throw new IllegalArgumentException("Second user text is empty");
         }
+        //w inicjalizacji pomocniczej char zawsze się wpisuje 'a'?
         char firstVowel = 'a';
         char[] arrayText2 = secondUserText.toCharArray();
         for (int i = 0; i < arrayText2.length; i++) {
@@ -55,12 +56,11 @@ public class Task2 {
         }
         char[] arrayText1 = firstUserText.toCharArray();
         for (int i = 0; i < arrayText1.length; i++) {
-            if (!isVowel(arrayText1[i])) {
+            if (!isVowel(arrayText1[i]) || !(Character.isDigit(arrayText1[i]))) {
                 arrayText1[i] = firstVowel;
             }
         }
-        //WYNIK FINALNY NIE JEST TAKI JAKIEGO BYM OCZEKIWAŁ, LITERY SIĘ PODMIENIAJĄ, ALE SĄ ŁĄCZONE
-        // I WYSKAKUJE ZA KAŻDYM RAZEM KOMUNIKAT Z ELSE
+        //WYNIK FINALNY NIE JEST PRAWIDŁOWY, A CYFRY RÓWNIEŻ SIĘ PODMIENIAJĄ NA SAMOGŁOSKI
         return String.valueOf(arrayText1);
 
     }

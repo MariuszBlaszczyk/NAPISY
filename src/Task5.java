@@ -36,6 +36,12 @@ public class Task5 {
     }
 
     static String createThirdInscription(String text1, String text2) {
+        if (text1 == null || text1.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
+        }
+        if (text2 == null || text2.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
+        }
         StringBuilder newText = new StringBuilder();
         for (int i = 0; i < text1.length(); i++) {
             char ch = text1.charAt(i);
