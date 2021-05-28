@@ -36,7 +36,7 @@ public class Task1 {
 
     static int howManyCharactersHaveAnOddDigitOfUnity(String text) {
         //co myślisz o dodaniu takiego wyjątku??
-        if (text.isEmpty()) {
+        if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("The inscription is blank");
         }
         int counter = 0;
@@ -50,7 +50,7 @@ public class Task1 {
     }
 
     static int theSumOfTheAsciiCodesOfTheCharactersOnTheEvenIndicesInTheString(String text) {
-        if (text.isEmpty()) {
+        if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("The inscription is blank");
         }
         int sum = 0;
@@ -68,6 +68,9 @@ public class Task1 {
         if (min > max) {
             throw new IllegalArgumentException("Min is bigger than max!");
         }
+        if (sum == 0) {
+            throw new IllegalArgumentException("Sum is zero!");
+        }
         int number = 0;
         for (int i = min; i < max; i++) {
             if (sum % i == 0) {
@@ -79,7 +82,7 @@ public class Task1 {
     }
 
     static int howManyLettersInTheWordAreLargerThanTheDesignatedLetter(int asciiCharacter, String userText) {
-        if (userText.isEmpty()) {
+        if (userText == null || userText.isEmpty()) {
             throw new IllegalArgumentException("The inscription is blank");
         }
         if (asciiCharacter == 0) {
