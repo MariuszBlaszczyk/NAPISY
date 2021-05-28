@@ -12,9 +12,7 @@ public class Task2 {
         Scanner scan = new Scanner(System.in);
         //inicjalizacja tego Stringa " " jest prawidłowa?
         String text = "";
-        //jaka jest różnica pomiędzy
-        // "^[a-zA-Z0-9]+$"   a   "[A-Za-z0-9]+.*"   ???
-        String regex = "[A-Za-z0-9]+.*";
+        String regex = "\\w*";
         boolean error = true;
         do {
             try {

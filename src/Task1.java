@@ -16,7 +16,7 @@ public class Task1 {
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
         String text = "";
-        String regex = "\\w+.*";
+        String regex = "\\w*";
         boolean error = true;
         do {
             try {
