@@ -38,6 +38,7 @@ public class Task6 {
                 ch = (char) (Character.getNumericValue(ch) - 5);
             }
         }
+        // nie wiem co dalej... i czy w ogóle ta metoda jest do tego momentu poprawna
     }
 
 
