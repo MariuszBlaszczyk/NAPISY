@@ -10,7 +10,7 @@ public class Task7 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String userText = "";
+        String userText = null;
         boolean error = true;
         do {
             try {

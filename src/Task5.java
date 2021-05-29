@@ -11,7 +11,7 @@ public class Task5 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String text = "";
+        String text = null;
         String regex = "\\w*";
         boolean error = true;
         do {
@@ -30,9 +30,9 @@ public class Task5 {
     }
 
     static boolean isVowel(char character) {
-        return character == 'a' || character == 'e' || character == 'i' ||
-                character == 'o' || character == 'u' || character == 'A' || character == 'E' ||
-                character == 'I' || character == 'O' || character == 'U';
+        String string = Character.toString(character).toLowerCase();
+        return string.equals("a") || string.equals("e") || string.equals("i") ||
+                string.equals("o") || string.equals("u") || string.equals("y");
     }
 
     static String createThirdInscription(String text1, String text2) {
@@ -64,6 +64,6 @@ public class Task5 {
         String userText2 = getStringFromUser();
 
         String result = createThirdInscription(userText1, userText2);
-        System.out.println("Third inscription: " +result);
+        System.out.println("Third inscription: " + result);
     }
 }

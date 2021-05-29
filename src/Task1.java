@@ -16,7 +16,7 @@ public class Task1 {
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
         //inicjalizacja tego Stringa "" jest prawidłowa?
-        String text = "";
+        String text = null;
         String regex = "[A-Z]+.*";
         boolean error = true;
         do {

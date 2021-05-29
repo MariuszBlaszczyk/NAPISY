@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task8 {
@@ -10,7 +11,7 @@ public class Task8 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String userText = "";
+        String userText = null;
         boolean error = true;
         do {
             try {
@@ -38,10 +39,10 @@ public class Task8 {
             return 0;
         }
         int counter = 0;
-        char ch;
-        for (int i = 0; i < text.length(); i++) {
-            ch = text.charAt(i);
-            if (ch >= 65 && ch <= 90) {
+        String regex = "^[A-Z].*";
+        String[] words = text.split("\\s+");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].matches(regex)) {
                 counter++;
             }
         }
@@ -53,15 +54,16 @@ public class Task8 {
             return 0;
         }
         int counter = 0;
-        char ch;
-        for (int i = 0; i < text.length(); i++) {
-            ch = text.charAt(i);
-            if (ch >= 97 && ch <= 122) {
+        String regex = "^[a-z].*";
+        String[] words = text.split("\\s+");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].matches(regex)) {
                 counter++;
             }
         }
         return counter;
     }
+
 
     public static void main(String[] args) {
 
@@ -71,9 +73,11 @@ public class Task8 {
         System.out.println("Is " + wordsInText + " words in text.");
 
         int startsWithCapitalLetter = howManyWordsStartWithACapitalLetter(userText);
-        System.out.println("The text includes " + startsWithCapitalLetter + " words that start with a capital letter.");
+        System.out.println("The text includes " + startsWithCapitalLetter +
+                " words that start with a capital letter.");
 
         int startsWithLowercaseLetter = howManyWordsStartWithALowercaseLetter(userText);
-        System.out.println("The text includes " + startsWithLowercaseLetter + " words that start with a lowercase letter.");
+        System.out.println("The text includes " + startsWithLowercaseLetter +
+                " words that start with a lowercase letter.");
     }
 }

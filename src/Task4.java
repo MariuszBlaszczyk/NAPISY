@@ -10,7 +10,7 @@ public class Task4 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String text = "";
+        String text = null;
         String regex = "\\w*";
         boolean error = true;
         int textLength = 0;
