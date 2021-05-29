@@ -29,7 +29,7 @@ public class Task6 {
         return text;
     }
 
-    static int increaseDecreaseCodeAscii(String text) {
+    static String increaseDecreaseCodeAscii(String text) {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("The inscription is empty");
         }
@@ -38,16 +38,22 @@ public class Task6 {
             char ch = text.charAt(i);
             if (i % 2 == 0) {
                 ch = (char) ((int) ch + 10);
-                System.out.println(ch);
             } else {
                 ch = (char) ((int) ch - 5);
-                System.out.println(ch);
             }
             builder.append(ch);
         }
+        return builder.toString();
+    }
+
+    static int counter(String text) {
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
+        }
+        String newText = increaseDecreaseCodeAscii(text);
         int counter = 0;
-        for (int i = 0; i < builder.length(); i++) {
-            char ch = builder.charAt(i);
+        for (int i = 0; i < newText.length(); i++) {
+            char ch = newText.charAt(i);
             if (Character.isLetter(ch)) {
                 counter++;
             }
@@ -60,7 +66,7 @@ public class Task6 {
 
         String userText = getStringFromUser();
 
-        int counter = increaseDecreaseCodeAscii(userText);
+        int counter = counter(userText);
         System.out.println("The modified caption includes " + counter + " letters.");
     }
 }

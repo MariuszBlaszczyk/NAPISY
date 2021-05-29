@@ -10,26 +10,36 @@ public class Task7 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String text = "";
-        String regex = "\\w*";
+        String userText = "";
         boolean error = true;
         do {
             try {
-                do {
-                    text = scan.nextLine();
-                    error = false;
-                } while (!text.matches(regex));
+                userText = scan.nextLine();
+                error = false;
             } catch (Exception e) {
-                System.out.println("You must provide a caption consisting of capital letters");
+                System.out.println("You must give the inscription");
                 scan.nextLine();
             }
         } while (error);
-        return text;
+        return userText;
     }
 
-//    static String createNewString(String text1, String text2) {
-//        String newText;
-//    }
+    static String createNewString(String text1, String text2) {
+        if (text1 == null || text1.isEmpty()) {
+            throw new IllegalArgumentException("The first inscription is empty");
+        }
+        if (text2 == null || text2.isEmpty()) {
+            throw new IllegalArgumentException("The second inscription is empty");
+        }
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < text1.length(); i++) {
+            char ch = text1.charAt(i);
+            builder.append(ch);
+            ch = text2.charAt(i);
+            builder.append(ch);
+        }
+        return builder.toString();
+    }
 
     public static void main(String[] args) {
 
@@ -41,5 +51,8 @@ public class Task7 {
             System.out.println("Give the second inscription");
             userText2 = getStringFromUser();
         } while (!(userText1.length() == userText2.length()));
+
+        String cre = createNewString(userText1, userText2);
+        System.out.println(cre);
     }
 }
