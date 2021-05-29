@@ -34,14 +34,13 @@ public class Task4 {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("The inscription is empty");
         }
-        char[] chars = text.toCharArray();
-        char helpedChar = 'a';
-        for (int i = 0; i < chars.length; i++) {
-            chars[0] = chars[1];
-            chars[1] = chars[0];
-            helpedChar = chars[2];
+        char[] ch = text.toCharArray();
+        for (int i = 0; i < ch.length; i += 2) {
+            char temp = ch[i];
+            ch[i] = ch[i + 1];
+            ch[i + 1] = temp;
         }
-        return String.valueOf(text);
+        return new String(ch);
     }
 
 
