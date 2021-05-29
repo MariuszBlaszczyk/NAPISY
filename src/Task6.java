@@ -29,21 +29,38 @@ public class Task6 {
         return text;
     }
 
-//    static int increaseDecreaseCodeAscii(String text) {
-//        for (int i = 0; i < text.length(); i++) {
-//            char ch = text.charAt(i);
-//            if (i % 2 == 0) {
-//                ch = (char) (Character.getNumericValue(ch) + 10);
-//            } else {
-//                ch = (char) (Character.getNumericValue(ch) - 5);
-//            }
-//        }
-//        // nie wiem co dalej... i czy w ogóle ta metoda jest do tego momentu poprawna
-//    }
+    static int increaseDecreaseCodeAscii(String text) {
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("The inscription is empty");
+        }
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (i % 2 == 0) {
+                ch = (char) ((int) ch + 10);
+                System.out.println(ch);
+            } else {
+                ch = (char) ((int) ch - 5);
+                System.out.println(ch);
+            }
+            builder.append(ch);
+        }
+        int counter = 0;
+        for (int i = 0; i < builder.length(); i++) {
+            char ch = builder.charAt(i);
+            if (Character.isLetter(ch)) {
+                counter++;
+            }
+        }
+        return counter;
+    }
 
 
     public static void main(String[] args) {
 
         String userText = getStringFromUser();
+
+        int counter = increaseDecreaseCodeAscii(userText);
+        System.out.println("The modified caption includes " + counter + " letters.");
     }
 }
