@@ -9,29 +9,27 @@ public class Task2 {
     Jeżeli w drugim napisie nie wystąpiła samogłoska wyświetl komunikat NIEPRAWIDŁOWE DANE WEJŚCIOWE.
      */
 
+
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String text = "";
-        String regex = "\\w+.*";
+        String userText = "";
         boolean error = true;
         do {
             try {
-                do {
-                    text = scan.nextLine();
-                    error = false;
-                } while (!text.matches(regex));
+                userText = scan.nextLine();
+                error = false;
             } catch (Exception e) {
-                System.out.println("You must provide a caption consisting of capital letters");
+                System.out.println("You must give the inscription");
                 scan.nextLine();
             }
         } while (error);
-        return text;
+        return userText;
     }
 
     static boolean isVowel(char character) {
-        return character == 'a' || character == 'e' || character == 'i' ||
-                character == 'o' || character == 'u' || character == 'A' || character == 'E' ||
-                character == 'I' || character == 'O' || character == 'U';
+        String string = Character.toString(character).toLowerCase();
+        return string.equals("a") || string.equals("e") || string.equals("i") ||
+                string.equals("o") || string.equals("u") || string.equals("y");
     }
 
 
@@ -42,28 +40,33 @@ public class Task2 {
         if (secondUserText == null || secondUserText.isEmpty()) {
             throw new IllegalArgumentException("Second user text is empty");
         }
-        //w inicjalizacji pomocniczej char zawsze się wpisuje 'a'?
-        char firstVowel = 'a';
-        char[] arrayText2 = secondUserText.toCharArray();
-        for (int i = 0; i < arrayText2.length; i++) {
-            if (isVowel(arrayText2[i])) {
-                firstVowel = arrayText2[i];
-                break;
-            } else {
-                System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
+        char firstVowel = 0;
+        boolean helped = false;
+        for (int i = 0; i < secondUserText.length(); i++) {
+            char ch = secondUserText.charAt(i);
+            if (isVowel(ch)) {
+                firstVowel = ch;
+                helped = true;
                 break;
             }
         }
-        char[] arrayText1 = firstUserText.toCharArray();
-        for (int i = 0; i < arrayText1.length; i++) {
-            if (!isVowel(arrayText1[i]) || !(Character.isDigit(arrayText1[i]))) {
-                arrayText1[i] = firstVowel;
-            }
+        if (!helped) {
+            System.out.println("NIEPRAWIDŁOWE DANE WEJŚCIOWE");
         }
-        //WYNIK FINALNY NIE JEST PRAWIDŁOWY, A CYFRY RÓWNIEŻ SIĘ PODMIENIAJĄ NA SAMOGŁOSKI
-        return String.valueOf(arrayText1);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < firstUserText.length(); i++) {
+            char ch = firstUserText.charAt(i);
+            if (!isVowel(ch)) {
+                sb.append(firstVowel);
+            }
+            else {
+                sb.append(ch);
+            }
 
+        }
+        return sb.toString();
     }
+
 
     public static void main(String[] args) {
 
