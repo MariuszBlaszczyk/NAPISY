@@ -10,22 +10,19 @@ public class Task8 {
 
     static String getStringFromUser() {
         Scanner scan = new Scanner(System.in);
-        String text = "";
-        String regex = "\\w+";
+        String userText = "";
         boolean error = true;
         do {
             try {
-                do {
-                    System.out.println("Give the inscription");
-                    text = scan.nextLine();
-                    error = false;
-                } while (!text.matches(regex));
+                System.out.println("Give the inscription");
+                userText = scan.nextLine();
+                error = false;
             } catch (Exception e) {
-                System.out.println("You must provide a caption consisting of capital letters");
+                System.out.println("You must give the inscription");
                 scan.nextLine();
             }
         } while (error);
-        return text;
+        return userText;
     }
 
     static int howManyWordsAreInAJavaText(String text) {
@@ -33,7 +30,37 @@ public class Task8 {
             return 0;
         }
         String[] words = text.split("\\s+");
-        return text.length();
+        return words.length;
+    }
+
+    static int howManyWordsStartWithACapitalLetter(String text) {
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        int counter = 0;
+        char ch;
+        for (int i = 0; i < text.length(); i++) {
+            ch = text.charAt(i);
+            if (ch >= 65 && ch <= 90) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    static int howManyWordsStartWithALowercaseLetter(String text) {
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+        int counter = 0;
+        char ch;
+        for (int i = 0; i < text.length(); i++) {
+            ch = text.charAt(i);
+            if (ch >= 97 && ch <= 122) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     public static void main(String[] args) {
@@ -42,5 +69,11 @@ public class Task8 {
 
         int wordsInText = howManyWordsAreInAJavaText(userText);
         System.out.println("Is " + wordsInText + " words in text.");
+
+        int startsWithCapitalLetter = howManyWordsStartWithACapitalLetter(userText);
+        System.out.println("The text includes " + startsWithCapitalLetter + " words that start with a capital letter.");
+
+        int startsWithLowercaseLetter = howManyWordsStartWithALowercaseLetter(userText);
+        System.out.println("The text includes " + startsWithLowercaseLetter + " words that start with a lowercase letter.");
     }
 }
