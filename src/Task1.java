@@ -104,10 +104,10 @@ public class Task1 {
         String userText = getStringFromUser();
 
 // jaką nazwę nadałbyś wsyztskim tym zmiennym tak żeby było wiadomo o co chodzi?
-        int counter = howManyCharactersHaveAnOddDigitOfUnity(userText);
+        int numberOf = howManyCharactersHaveAnOddDigitOfUnity(userText);
         int sum = theSumOfTheAsciiCodesOfTheCharactersOnTheEvenIndicesInTheString(userText);
 
-        System.out.println("There are " + counter + " characters whose ASCII code has " +
+        System.out.println("There are " + numberOf + " characters whose ASCII code has " +
                 "an odd unity digit.");
         System.out.println("The sum of the ASCII codes of the characters on the even indices in" +
                 " the inscription is: " + sum);
